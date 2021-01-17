@@ -2,8 +2,8 @@ package com.kozmapps.cryptolive.authentication;
 
 import com.google.common.collect.ImmutableMap;
 import com.kozmapps.cryptolive.date.DateService;
-import com.kozmapps.cryptolive.user.InvalidToken;
-import com.kozmapps.cryptolive.user.InvalidTokenService;
+import com.kozmapps.cryptolive.invalidtoken.InvalidToken;
+import com.kozmapps.cryptolive.invalidtoken.InvalidTokenService;
 import com.kozmapps.cryptolive.user.User;
 import com.kozmapps.cryptolive.user.UserService;
 import lombok.AllArgsConstructor;

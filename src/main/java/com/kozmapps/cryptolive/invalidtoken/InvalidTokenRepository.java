@@ -1,4 +1,4 @@
-package com.kozmapps.cryptolive.user;
+package com.kozmapps.cryptolive.invalidtoken;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

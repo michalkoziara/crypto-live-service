@@ -1,4 +1,4 @@
-package com.kozmapps.cryptolive.user;
+package com.kozmapps.cryptolive.invalidtoken;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
