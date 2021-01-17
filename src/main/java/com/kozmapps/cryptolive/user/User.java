@@ -20,16 +20,13 @@ import static java.util.Objects.requireNonNull;
 @Builder
 public class User implements UserDetails {
     @Id
-    String id;
     String username;
     String password;
 
     @JsonCreator
-    User(@JsonProperty("id") final String id,
-         @JsonProperty("username") final String username,
+    User(@JsonProperty("username") final String username,
          @JsonProperty("password") final String password) {
         super();
-        this.id = requireNonNull(id);
         this.username = requireNonNull(username);
         this.password = requireNonNull(password);
     }

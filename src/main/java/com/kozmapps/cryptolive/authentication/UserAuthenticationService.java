@@ -10,9 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import org.joda.time.DateTime;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.Optional;
 
 import static lombok.AccessLevel.PACKAGE;
@@ -41,8 +41,17 @@ public final class UserAuthenticationService {
     public Optional<String> login(final String username, final String password) {
         return userService
                 .findByUsername(username)
-                .filter(user -> Objects.equals(password, user.getPassword()))
+                .filter(user -> new BCryptPasswordEncoder().matches(password, user.getPassword()))
                 .map(user -> tokens.expiring(ImmutableMap.of("username", username)));
+    }
+
+    public void register(final String username, final String password) {
+        userService.createUser(
+                User.builder()
+                        .username(username)
+                        .password(new BCryptPasswordEncoder().encode(password))
+                        .build()
+        );
     }
 
     /**

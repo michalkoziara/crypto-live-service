@@ -18,22 +18,13 @@ import static lombok.AccessLevel.PRIVATE;
 @AllArgsConstructor(access = PACKAGE)
 final class PublicUsersController {
     @NonNull
-    UserAuthenticationService authentication;
-    @NonNull
-    UserService users;
+    UserAuthenticationService authenticationService;
 
     @PostMapping("/register")
     String register(
             @RequestParam("username") final String username,
             @RequestParam("password") final String password) {
-        users.createUser(
-                User.builder()
-                        .id(username)
-                        .username(username)
-                        .password(password)
-                        .build()
-        );
-
+        authenticationService.register(username, password);
         return login(username, password);
     }
 
@@ -41,7 +32,7 @@ final class PublicUsersController {
     String login(
             @RequestParam("username") final String username,
             @RequestParam("password") final String password) {
-        return authentication
+        return authenticationService
                 .login(username, password)
                 .orElseThrow(() -> new RuntimeException("Invalid login and/or password."));
     }

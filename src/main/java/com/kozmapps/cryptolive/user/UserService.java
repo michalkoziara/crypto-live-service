@@ -18,7 +18,7 @@ public class UserService {
     @NonNull
     UserRepository userRepository;
 
-    User createUser(User user) {
+    public User createUser(User user) {
         return userRepository.insert(user);
     }
 
