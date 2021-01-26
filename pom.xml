@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.kozmapps</groupId>
     <artifactId>crypto-live</artifactId>
-    <version>0.0.1</version>
+    <version>RELEASE</version>
     <packaging>war</packaging>
     <name>crypto-live</name>
     <description>CryptoLive API server for tracking cryptocurrency prices.</description>
