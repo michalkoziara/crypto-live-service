@@ -9,17 +9,12 @@ import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 
 @Configuration
 public class MongoConfig extends AbstractMongoClientConfiguration {
-
-    private static final String username = "admin";
-    private static final String password = "password";
-    private static final String host = "localhost";
-    private static final int port = 27017;
-
     @Override
     public MongoClient mongoClient() {
         final ConnectionString connectionString =
                 new ConnectionString(
-                        "mongodb://" + username + ":" + password + "@" + host + ":" + port + "/" + getDatabaseName()
+                        "mongodb://" + SecretConstants.username + ":" + SecretConstants.password + "@"
+                                + SecretConstants.host + ":" + SecretConstants.port + "/" + getDatabaseName()
                 );
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
@@ -30,7 +25,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "cryptolive";
+        return SecretConstants.databaseName;
     }
 
     @Override
