@@ -6,7 +6,7 @@ managing and storing user's data in database and redirecting data related to cry
 
 This repository contains only source code related to the web service. 
 Additional web application created with React.js that serves as a user interface 
-can be found in the following repository https://github.com/michalkoziara/crypto-live-web.
+can be found in the [michalkoziara/crypto-live-web](https://github.com/michalkoziara/crypto-live-web) repository.
 
 ## Getting Started
 
